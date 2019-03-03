@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - zaidejas
+  - mapas
   - 
   - 
   - 
@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: zaidejas
+    uniqueID: 421061687
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: fonas
+    uniqueID: 962855681
     locked: 0
