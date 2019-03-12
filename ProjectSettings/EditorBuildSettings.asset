@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3rd level NEW ENEMIES.unity
     guid: 8d406239bf7d33147b179f84a1364726
+  - enabled: 1
+    path: Assets/Scenes/4th level shooting star.unity
+    guid: f64f25f36e6e8d84f95449b8002db3e6
   m_configObjects: {}
