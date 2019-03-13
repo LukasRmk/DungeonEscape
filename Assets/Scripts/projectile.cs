@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class projectile : MonoBehaviour
 {
 
+    public static AudioClip cannonSound;
+    static AudioSource src;
+
     public float speed;
 
     private Transform player;
@@ -14,6 +17,10 @@ public class projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cannonSound = Resources.Load<AudioClip>("cannon");
+        src = GetComponent<AudioSource>();
+
+        src.PlayOneShot(cannonSound);
         float random = Random.Range(-1, 1);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector2(player.position.x + random, player.position.y + random);
