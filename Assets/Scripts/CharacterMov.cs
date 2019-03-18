@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMov : MonoBehaviour
 {
     Rigidbody2D rb;
+
+    public static int currHealth = 3;
+    public int maxHealth = 3;
+
+    public float invLenght;
+    private float invCounter;
 
     public float speed;
 
@@ -16,6 +23,24 @@ public class CharacterMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+
+        if (invCounter > 0)
+        {
+            invCounter -= Time.deltaTime;
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
+
+        if(currHealth > maxHealth)
+        {
+            currHealth = maxHealth;
+        }
+
+        if(currHealth <= 0)
+        {
+            die();
+        }
+
         rb.velocity = (new Vector2(0, 0));
 
         if (Input.GetKey("d"))
@@ -60,8 +85,22 @@ public class CharacterMov : MonoBehaviour
 
     }
 
-    static void move()
+    void die()
     {
-
+        SceneManager.LoadScene(0);
+        currHealth = maxHealth;
     }
+      
+    public void damage(int dmg)
+    {
+        if (invCounter <= 0)
+        {
+            currHealth -= dmg;
+            invCounter = invLenght;
+            Scene scene = SceneManager.GetActiveScene(); 
+            SceneManager.LoadScene(scene.name);
+        }
+    }
+
+
 }

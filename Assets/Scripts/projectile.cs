@@ -9,12 +9,14 @@ public class projectile : MonoBehaviour
 
     public float speed;
 
+    private CharacterMov character;
     private Transform player;
     private Vector2 target;
     // Start is called before the first frame update
     void Start()
     {
         float random = Random.Range(-1, 1);
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMov>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector2(player.position.x + random, player.position.y + random);
 
@@ -36,8 +38,7 @@ public class projectile : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             DestroyProjectile();
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            character.damage(1);
         }
 
         if (collision.CompareTag("wall"))
