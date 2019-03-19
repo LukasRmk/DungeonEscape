@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class projectile : MonoBehaviour
 {
 
+    public static AudioClip cannonSound;
+    static AudioSource src;
+
     public float speed;
 
     private CharacterMov character;
@@ -15,6 +18,10 @@ public class projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cannonSound = Resources.Load<AudioClip>("cannon");
+        src = GetComponent<AudioSource>();
+
+        src.PlayOneShot(cannonSound);
         float random = Random.Range(-1, 1);
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMov>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
