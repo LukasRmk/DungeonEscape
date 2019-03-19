@@ -7,6 +7,7 @@ public class ghostFollow : MonoBehaviour
 {
 
     public float speed;
+    public float aggrorange;
     private Transform target;
     private CharacterMov character;
 
@@ -20,7 +21,10 @@ public class ghostFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Vector2.Distance(transform.position, target.position) < aggrorange)
+        {
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
