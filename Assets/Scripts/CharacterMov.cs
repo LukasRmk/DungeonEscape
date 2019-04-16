@@ -23,12 +23,6 @@ public class CharacterMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "1st level")
-        {
-            currHealth = maxHealth;
-        }
-
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
 
         if (invCounter > 0)
@@ -93,7 +87,7 @@ public class CharacterMov : MonoBehaviour
 
     void die()
     {
-        SceneManager.LoadScene("End");
+        SceneManager.LoadScene(0);
         currHealth = maxHealth;
     }
       

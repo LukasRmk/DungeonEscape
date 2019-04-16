@@ -11,6 +11,7 @@ public class shootingMob : MonoBehaviour
 
     public GameObject projectile;
     private Transform player;
+    public float aggroRange;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +22,18 @@ public class shootingMob : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeBtwShots <= 0)
+        if (Vector2.Distance(transform.position, player.position) < aggroRange)
         {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBtwShots = startTimeBtwShots;
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
+
+            if (timeBtwShots <= 0)
+            {
+                Instantiate(projectile, transform.position, Quaternion.identity);
+                timeBtwShots = startTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
         }
     }
 }

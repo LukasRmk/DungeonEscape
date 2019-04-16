@@ -5,13 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    CharacterMov character;
-
-    private void Start()
-    {
-        Cursor.visible = true;
-    }
-
     public void PlayGame()
     {
         SceneManager.LoadScene("1st level");
@@ -26,5 +19,4 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
 }

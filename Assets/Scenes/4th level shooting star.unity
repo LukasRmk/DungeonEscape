@@ -1118,6 +1118,7 @@ GameObject:
   - component: {fileID: 919582883}
   - component: {fileID: 919582882}
   - component: {fileID: 919582884}
+  - component: {fileID: 919582887}
   - component: {fileID: 919582886}
   - component: {fileID: 919582885}
   m_Layer: 0
@@ -1204,6 +1205,7 @@ MonoBehaviour:
   startTimeBtwShots: 1
   projectile: {fileID: 8191209762524829578, guid: 59c76d36f5206144bb4447aad0e4513f,
     type: 3}
+  aggroRange: 4
 --- !u!50 &919582885
 Rigidbody2D:
   serializedVersion: 4
@@ -1251,6 +1253,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.63}
   m_EdgeRadius: 0
+--- !u!114 &919582887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919582881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91d807bcb9a61f4f8ee1b729d02a367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  stoping: 3
+  retreat: 3
+  aggroRange: 4
+  player: {fileID: 0}
 --- !u!1 &1191799440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1281,8 @@ GameObject:
   - component: {fileID: 1191799443}
   - component: {fileID: 1191799442}
   - component: {fileID: 1191799441}
+  - component: {fileID: 1191799447}
+  - component: {fileID: 1191799448}
   - component: {fileID: 1191799444}
   - component: {fileID: 1191799445}
   - component: {fileID: 1191799446}
@@ -1287,6 +1308,7 @@ MonoBehaviour:
   startTimeBtwShots: 1
   projectile: {fileID: 8191209762524829578, guid: 59c76d36f5206144bb4447aad0e4513f,
     type: 3}
+  aggroRange: 4
 --- !u!212 &1191799442
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1492,6 +1514,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1191799447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191799440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91d807bcb9a61f4f8ee1b729d02a367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  stoping: 3
+  retreat: 3
+  aggroRange: 4
+  player: {fileID: 0}
+--- !u!114 &1191799448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191799440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00fb6d9a58f34ff41aef62efbd0f9e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materal: 0
 --- !u!1 &1438527236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3230,7 +3282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc79df496b8e7234fae9b28cebec41f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 6
+  level: 5
 --- !u!61 &2141892325
 BoxCollider2D:
   m_ObjectHideFlags: 0
