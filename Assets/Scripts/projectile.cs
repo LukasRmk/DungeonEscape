@@ -22,10 +22,9 @@ public class projectile : MonoBehaviour
         src = GetComponent<AudioSource>();
 
         src.PlayOneShot(cannonSound);
-        float random = Random.Range(-1, 1);
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMov>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(player.position.x + random, player.position.y + random);
+        target = new Vector2(player.position.x, player.position.y);
 
     }
 

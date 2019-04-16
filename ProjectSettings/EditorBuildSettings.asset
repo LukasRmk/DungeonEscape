@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 8bfab1ddbb6b0e44282a5261cc4cda8c
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/1st level.unity
-    guid: 82b5b5a8ff4635d44a2effbcc2c1a83d
+    guid: b75eb3ee6b9e92a4ca11b8846fe72623
   - enabled: 1
     path: Assets/Scenes/2nd level lol.unity
     guid: 3e3f1cbd35f4a124996f09ae77a5a802
@@ -26,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 7eb35acf61c46084caebe7c2932fe0b7
+  - enabled: 1
+    path: Assets/Scenes/5level.unity
+    guid: a44a5593596e66d4ab763340f07554fa
   m_configObjects: {}

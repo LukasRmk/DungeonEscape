@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  aggrorange: 2
+  aggrorange: 5
 --- !u!212 &517902302
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2960,7 +2960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  aggrorange: 2
+  aggrorange: 5
 --- !u!212 &2121867180
 SpriteRenderer:
   m_ObjectHideFlags: 0
