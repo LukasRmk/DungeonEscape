@@ -9,7 +9,8 @@ public class projectile : MonoBehaviour
 
     public static AudioClip cannonSound;
     static AudioSource src;
-
+    public GameObject explosion;
+    public GameObject trail;
     public float speed;
 
     private CharacterMov character;
@@ -27,11 +28,19 @@ public class projectile : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector2(player.position.x + random, player.position.y + random);
 
+        var dir = player.position - transform.position;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+       // Instantiate(trail, transform.position, transform.rotation);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
         if (transform.position.x == target.x && transform.position.y == target.y)
@@ -57,5 +66,12 @@ public class projectile : MonoBehaviour
     void DestroyProjectile()
     {
         Destroy(gameObject);
+        Explode();
+    }
+
+
+    void Explode()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
     }
 }
