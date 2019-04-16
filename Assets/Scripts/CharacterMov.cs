@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class CharacterMov : MonoBehaviour
 {
     Rigidbody2D rb;
+    public Animator animator;
 
     public static int currHealth = 3;
     public int maxHealth = 3;
@@ -23,7 +24,7 @@ public class CharacterMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+        gameObject.GetComponent<Renderer>().material.color = Color.white;
 
         if (invCounter > 0)
         {
@@ -42,45 +43,56 @@ public class CharacterMov : MonoBehaviour
         }
 
         rb.velocity = (new Vector2(0, 0));
+        animator.SetFloat("Speed", 0);
+        animator.SetFloat("SpeedK", 0);
+        
 
         if (Input.GetKey("d"))
         {
             rb.velocity = (new Vector2(speed, rb.velocity.y));
+            animator.SetFloat("Speed", 1);
         }
 
         if (Input.GetKey("a"))
         {
             rb.velocity = (new Vector2(-speed, rb.velocity.y));
+            animator.SetFloat("SpeedK", 1);
         }
 
         if (Input.GetKey("w"))
         {
             rb.velocity = (new Vector2(rb.velocity.y, speed));
+            animator.SetFloat("Speed", 1);
         }
 
         if (Input.GetKey("s"))
         {
             rb.velocity = (new Vector2(rb.velocity.y, -speed));
+            animator.SetFloat("SpeedK", 1);
         }
 
         if (Input.GetKey("d") && Input.GetKey("w"))
         {
             rb.velocity = (new Vector2(speed, speed));
+            animator.SetFloat("Speed", 1);
         }
 
         if (Input.GetKey("a") && Input.GetKey("w"))
         {
             rb.velocity = (new Vector2(-speed, speed));
+            animator.SetFloat("SpeedK", 1);
         }
 
         if (Input.GetKey("d") && Input.GetKey("s"))
         {
             rb.velocity = (new Vector2(speed, -speed));
+            animator.SetFloat("Speed", 1);
         }
 
         if (Input.GetKey("a") && Input.GetKey("s"))
         {
             rb.velocity = (new Vector2(-speed, -speed));
+            animator.SetFloat("SpeedK", 1);
         }
 
     }
@@ -89,6 +101,11 @@ public class CharacterMov : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         currHealth = maxHealth;
+    }
+
+    public void gainHP(int ammount)
+    {
+        currHealth = currHealth + ammount;
     }
       
     public void damage(int dmg)
