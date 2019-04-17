@@ -34,6 +34,13 @@ public class projectile : MonoBehaviour
        // Instantiate(trail, transform.position, transform.rotation);
 
 
+        var dir = player.position - transform.position;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+       // Instantiate(trail, transform.position, transform.rotation);
+
+
     }
 
     // Update is called once per frame
