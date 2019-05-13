@@ -7,6 +7,8 @@ TagManager:
   - ghost
   - wall
   - Light
+  - Target
+  - Boss
   layers:
   - Default
   - TransparentFX

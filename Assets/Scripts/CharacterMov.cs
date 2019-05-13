@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CharacterMov : MonoBehaviour
 {
     Rigidbody2D rb;
     public Animator animator;
+    public Text SaveInfo;
 
+    public string currLevel;
     public static int currHealth = 3;
     public int maxHealth = 3;
 
@@ -18,6 +21,8 @@ public class CharacterMov : MonoBehaviour
 
     private void Start()
     {
+        Scene lygis = SceneManager.GetActiveScene();
+        currLevel = lygis.name;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -45,6 +50,16 @@ public class CharacterMov : MonoBehaviour
         rb.velocity = (new Vector2(0, 0));
         animator.SetFloat("Speed", 0);
         animator.SetFloat("SpeedK", 0);
+
+        if (Input.GetKey("x"))
+        {
+            Save();
+        }
+
+        if (Input.GetKey("c"))
+        {
+            Load();
+        }
         
 
         if (Input.GetKey("d"))
@@ -99,8 +114,13 @@ public class CharacterMov : MonoBehaviour
 
     void die()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("End");
         currHealth = maxHealth;
+    }
+
+    public int getHealth()
+    {
+        return currHealth;
     }
 
     public void gainHP(int ammount)
@@ -119,5 +139,42 @@ public class CharacterMov : MonoBehaviour
         }
     }
 
+    public void Save()
+    {
+        SaveSystem.SavePlayer(this);
+        SaveInfo.text = ("Game Saved!");
+        StartCoroutine(wait());
+    }
+
+    public void Load()
+    {
+        PlayerData data = SaveSystem.LoadPLayer();
+
+        if (data != null)
+        {
+            SceneManager.LoadScene(data.level);
+            currHealth = data.health;
+        }
+        else
+        {
+            SaveInfo.text = ("No previous save was found");
+            StartCoroutine(wait());
+        }
+
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        SaveInfo.text = ("");
+    }
+    public void bossDamage(int dmg)
+    {
+        if (invCounter <= 0)
+        {
+            currHealth -= dmg;
+            invCounter = invLenght;
+        }
+    }
 
 }

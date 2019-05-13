@@ -10,21 +10,34 @@ public class ghostFollow : MonoBehaviour
     public float aggrorange;
     private Transform target;
     private CharacterMov character;
+    public Animator animator;
+    protected Vector2 direction;
 
     // Start is called before the first frame update
     void Start()
     {
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMov>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        direction = Vector2.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("SpeedK", 0);
+        animator.SetFloat("SpeedD", 0);
         if (Vector2.Distance(transform.position, target.position) < aggrorange)
         {
+            direction = (target.transform.position - transform.position).normalized;
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            Anim();
         }
+    }
+
+    void Anim()
+    {
+        animator.SetFloat("SpeedK", direction.x);
+        animator.SetFloat("SpeedD", direction.x);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
