@@ -7,9 +7,10 @@ public class levelChanger : MonoBehaviour
 {
     public int level;
 
+    CharacterMov player;
+
     private void Start()
     {
-
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -27,5 +28,7 @@ public class levelChanger : MonoBehaviour
             SceneManager.LoadScene(level);
         }
     }
+
+
 
 }
