@@ -37,12 +37,12 @@ public class CharacterMov : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
 
-        if(currHealth > maxHealth)
+        if (currHealth > maxHealth)
         {
             currHealth = maxHealth;
         }
 
-        if(currHealth <= 0)
+        if (currHealth <= 0)
         {
             die();
         }
@@ -180,5 +180,10 @@ public class CharacterMov : MonoBehaviour
         }
     }
 >>>>>>> f4a3a058ea3b36b89adb561d75f32e09aa823735
+
+}
+
+=======
+>>>>>>> 70766c6fa2484678407232be07fdbf649fbd9f29
 
 }

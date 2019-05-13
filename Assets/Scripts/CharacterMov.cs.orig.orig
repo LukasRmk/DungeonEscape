@@ -198,7 +198,10 @@ public class CharacterMov : MonoBehaviour
         yield return new WaitForSecondsRealtime(2);
         SaveInfo.text = ("");
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> ddfb403dd9dc3725436e05c7a26e1b6b4f6334e1
     public void bossDamage(int dmg)
     {
         if (invCounter <= 0)
@@ -207,6 +210,9 @@ public class CharacterMov : MonoBehaviour
             invCounter = invLenght;
         }
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> ddfb403dd9dc3725436e05c7a26e1b6b4f6334e1
 
 }

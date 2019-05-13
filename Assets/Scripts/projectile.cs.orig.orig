@@ -34,7 +34,6 @@ public class projectile : MonoBehaviour
        // Instantiate(trail, transform.position, transform.rotation);
 
 <<<<<<< HEAD
-=======
 
         var dir = player.position - transform.position;
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -42,7 +41,12 @@ public class projectile : MonoBehaviour
 
        // Instantiate(trail, transform.position, transform.rotation);
 
->>>>>>> 8905add264ca1575523692f4594bda538e49e6dd
+<<<<<<< HEAD
+=======
+>>>>>>> f4a3a058ea3b36b89adb561d75f32e09aa823735
+=======
+>>>>>>> 70766c6fa2484678407232be07fdbf649fbd9f29
+>>>>>>> ddfb403dd9dc3725436e05c7a26e1b6b4f6334e1
 
     }
 

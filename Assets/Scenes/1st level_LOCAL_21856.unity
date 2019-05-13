@@ -1018,8 +1018,6 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 24
     m_Data: {fileID: 11400000, guid: d5f5ce6e8d4dbcb4cb886420b04df7cd, type: 2}
-  - m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: d05e5a9d4357e284ca1f7b5c8d566928, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 2
@@ -1041,8 +1039,6 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 24
     m_Data: {fileID: 21300014, guid: 75dd61bf18ccaad49801a0f620525cca, type: 3}
-  - m_RefCount: 2
-    m_Data: {fileID: 21300128, guid: 75dd61bf18ccaad49801a0f620525cca, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 2
@@ -2468,12 +2464,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
 --- !u!222 &1448318395
+CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448318391}
-  m_Component:
+  m_CullTransparentMesh: 0
 --- !u!1 &1713257602
 GameObject:
   m_ObjectHideFlags: 0
