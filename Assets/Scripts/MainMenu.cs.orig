@@ -1,0 +1,43 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MainMenu : MonoBehaviour
+{
+<<<<<<< HEAD
+    CharacterMov player;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMov>();
+        Cursor.visible = true;
+    }
+
+    public void Continue()
+    {
+        player.Load();
+    }
+
+=======
+    void Start()
+    {
+        Cursor.visible = true;
+    }
+
+>>>>>>> 8905add264ca1575523692f4594bda538e49e6dd
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("1st level");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+}
