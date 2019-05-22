@@ -37,12 +37,12 @@ public class CharacterMov : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
 
-        if (currHealth > maxHealth)
+        if(currHealth > maxHealth)
         {
             currHealth = maxHealth;
         }
 
-        if (currHealth <= 0)
+        if(currHealth <= 0)
         {
             die();
         }
@@ -60,7 +60,7 @@ public class CharacterMov : MonoBehaviour
         {
             Load();
         }
-
+        
 
         if (Input.GetKey("d"))
         {
@@ -114,7 +114,7 @@ public class CharacterMov : MonoBehaviour
 
     void die()
     {
-        SceneManager.LoadScene("End");
+        SceneManager.LoadScene("Dead");
         currHealth = maxHealth;
     }
 
@@ -127,15 +127,16 @@ public class CharacterMov : MonoBehaviour
     {
         currHealth = currHealth + ammount;
     }
-
+      
     public void damage(int dmg)
     {
         if (invCounter <= 0)
         {
             currHealth -= dmg;
             invCounter = invLenght;
-            Scene scene = SceneManager.GetActiveScene();
+            Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
+            GameVariables.haveKey = false;
         }
     }
 
@@ -168,37 +169,6 @@ public class CharacterMov : MonoBehaviour
         yield return new WaitForSecondsRealtime(2);
         SaveInfo.text = ("");
     }
-
-    public void Save()
-    {
-        SaveSystem.SavePlayer(this);
-        SaveInfo.text = ("Game Saved!");
-        StartCoroutine(wait());
-    }
-
-    public void Load()
-    {
-        PlayerData data = SaveSystem.LoadPLayer();
-
-        if (data != null)
-        {
-            SceneManager.LoadScene(data.level);
-            currHealth = data.health;
-        }
-        else
-        {
-            SaveInfo.text = ("No previous save was found");
-            StartCoroutine(wait());
-        }
-
-    }
-
-    IEnumerator wait()
-    {
-        yield return new WaitForSecondsRealtime(2);
-        SaveInfo.text = ("");
-    }
-
     public void bossDamage(int dmg)
     {
         if (invCounter <= 0)
@@ -207,6 +177,5 @@ public class CharacterMov : MonoBehaviour
             invCounter = invLenght;
         }
     }
-
 
 }

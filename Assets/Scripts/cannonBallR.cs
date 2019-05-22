@@ -13,6 +13,7 @@ public class cannonBallR : MonoBehaviour
     public GameObject explosion;
     public float speed;
     private CharacterMov character;
+    Scene scene;
 
     public Rigidbody2D rb;
 
@@ -23,6 +24,7 @@ public class cannonBallR : MonoBehaviour
         src.PlayOneShot(cannonSound);
 
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMov>();
+        scene = SceneManager.GetActiveScene(); 
 
         rb.velocity = -transform.right * speed;
     }
@@ -34,16 +36,24 @@ public class cannonBallR : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+
+        if (collision.CompareTag("Player") && scene.name == "Boos map")
+        {
+            DestroyProjectile();
+            character.bossDamage(1);
+        }
+
+        else if (collision.CompareTag("Player"))
         {
             DestroyProjectile();
             character.damage(1);
         }
 
-        if (collision.CompareTag("wall"))
+        else if (collision.CompareTag("wall"))
         {
             DestroyProjectile();
         }
+        
     }
 
     void DestroyProjectile()

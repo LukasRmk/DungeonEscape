@@ -30,6 +30,6 @@ public class MainMenu : MonoBehaviour
 
     public void ToMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("StartMenu");
     }
 }
