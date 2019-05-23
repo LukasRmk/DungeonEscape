@@ -10,6 +10,8 @@ public class bOSS : MonoBehaviour
     public Animator animator;
     public Slider healthBar;
 
+    public GameObject key;
+
     public float invLenght;
     private float invCounter;
 
@@ -37,6 +39,8 @@ public class bOSS : MonoBehaviour
 
                 StartCoroutine(waitMirtis());
                 Destroy(gameObject, 0.5f);
+
+                Instantiate(key, transform.position, Quaternion.identity);
             }
         }
 

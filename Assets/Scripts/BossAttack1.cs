@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossAttack1 : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class BossAttack1 : MonoBehaviour
     public Transform attackPos;
     public float attackRange;
     public int damage;
+    public Text Warning;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +44,13 @@ public class BossAttack1 : MonoBehaviour
         if(boss.health <= maxHealth/2)
         {
             Smugis2();
-            beg.speed = 3.5f;
+            beg.speed = 3;
             if (boss.health == maxHealth / 2)
             {
+                Warning.text = ("Arrrghhh!!");
                 animator.SetBool("taunt", true);
                 StartCoroutine(wait3());
+                StartCoroutine(wait4());
             }
         }
         else
@@ -65,7 +69,7 @@ public class BossAttack1 : MonoBehaviour
                 Collider2D[] damagePlayer = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
                 animator.SetBool("Smugis", true);
-                character.bossDamage(1);
+                //character.bossDamage(1);
 
                 StartCoroutine(wait());
             }
@@ -88,7 +92,7 @@ public class BossAttack1 : MonoBehaviour
                 Collider2D[] damagePlayer = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
 
                 animator.SetBool("Smugis2", true);
-                character.bossDamage(1);
+                //character.bossDamage(1);
 
                 StartCoroutine(wait2());
             }
@@ -108,17 +112,26 @@ public class BossAttack1 : MonoBehaviour
     }
     IEnumerator wait()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.4f);
         animator.SetBool("Smugis", false);
+        character.bossDamage(1);
     }
     IEnumerator wait2()
     {
         yield return new WaitForSecondsRealtime(0.7f);
         animator.SetBool("Smugis2", false);
+        character.bossDamage(1);
     }
     IEnumerator wait3()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(1.2f);
+        beg.speed = 3.5f;
         animator.SetBool("taunt", false);
+    }
+    IEnumerator wait4()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        Warning.text = ("");
+        Destroy(Warning);
     }
 }
