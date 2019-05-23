@@ -169,36 +169,6 @@ public class CharacterMov : MonoBehaviour
         SaveInfo.text = ("");
     }
 
-    public void Save()
-    {
-        SaveSystem.SavePlayer(this);
-        SaveInfo.text = ("Game Saved!");
-        StartCoroutine(wait());
-    }
-
-    public void Load()
-    {
-        PlayerData data = SaveSystem.LoadPLayer();
-
-        if (data != null)
-        {
-            SceneManager.LoadScene(data.level);
-            currHealth = data.health;
-        }
-        else
-        {
-            SaveInfo.text = ("No previous save was found");
-            StartCoroutine(wait());
-        }
-
-    }
-
-    IEnumerator wait()
-    {
-        yield return new WaitForSecondsRealtime(2);
-        SaveInfo.text = ("");
-    }
-
     public void bossDamage(int dmg)
     {
         if (invCounter <= 0)
