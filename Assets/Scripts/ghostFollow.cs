@@ -12,6 +12,7 @@ public class ghostFollow : MonoBehaviour
     private CharacterMov character;
     public Animator animator;
     protected Vector2 direction;
+    Scene scene;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class ghostFollow : MonoBehaviour
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMov>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         direction = Vector2.zero;
+        scene = SceneManager.GetActiveScene();
     }
 
     // Update is called once per frame
@@ -42,15 +44,26 @@ public class ghostFollow : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && scene.name == "Boos map")
+        {
+
+        }
+
+        else if (collision.CompareTag("Player"))
         {
             character.damage(1);
         }
+
     }
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && scene.name == "Boos map")
+        {
+
+        }
+
+        else if (collision.CompareTag("Player"))
         {
             character.damage(1);
         }

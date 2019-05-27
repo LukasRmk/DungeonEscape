@@ -22,4 +22,5 @@ public class ScaredOfLight : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, light.position, -speed * Time.deltaTime);
         }
     }
+
 }

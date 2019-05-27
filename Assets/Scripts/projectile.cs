@@ -32,8 +32,6 @@ public class projectile : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
        // Instantiate(trail, transform.position, transform.rotation);
-
-
     }
 
     // Update is called once per frame

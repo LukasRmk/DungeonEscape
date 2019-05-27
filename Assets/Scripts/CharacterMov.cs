@@ -114,7 +114,7 @@ public class CharacterMov : MonoBehaviour
 
     void die()
     {
-        SceneManager.LoadScene("End");
+        SceneManager.LoadScene("Dead");
         currHealth = maxHealth;
     }
 
@@ -136,6 +136,7 @@ public class CharacterMov : MonoBehaviour
             invCounter = invLenght;
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
+            GameVariables.haveKey = false;
         }
     }
 

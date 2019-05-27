@@ -9,6 +9,7 @@ TagManager:
   - Light
   - Target
   - Boss
+  - Freeze
   layers:
   - Default
   - TransparentFX
