@@ -32,31 +32,16 @@ public class projectile : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
        // Instantiate(trail, transform.position, transform.rotation);
-
 <<<<<<< HEAD
-
-        var dir = player.position - transform.position;
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-       // Instantiate(trail, transform.position, transform.rotation);
-
-
-        var dir = player.position - transform.position;
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-       // Instantiate(trail, transform.position, transform.rotation);
-
 =======
->>>>>>> f4a3a058ea3b36b89adb561d75f32e09aa823735
 
+
+>>>>>>> aef45b32a9738c4c16f2a82173869c9136011909
     }
 
     // Update is called once per frame
     void Update()
     {
-
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
         if (transform.position.x == target.x && transform.position.y == target.y)

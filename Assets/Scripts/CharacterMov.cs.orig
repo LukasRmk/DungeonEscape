@@ -37,12 +37,12 @@ public class CharacterMov : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = Color.red;
         }
 
-        if (currHealth > maxHealth)
+        if(currHealth > maxHealth)
         {
             currHealth = maxHealth;
         }
 
-        if (currHealth <= 0)
+        if(currHealth <= 0)
         {
             die();
         }
@@ -114,7 +114,7 @@ public class CharacterMov : MonoBehaviour
 
     void die()
     {
-        SceneManager.LoadScene("End");
+        SceneManager.LoadScene("Dead");
         currHealth = maxHealth;
     }
 
@@ -136,6 +136,7 @@ public class CharacterMov : MonoBehaviour
             invCounter = invLenght;
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
+            GameVariables.haveKey = false;
         }
     }
 
@@ -171,6 +172,7 @@ public class CharacterMov : MonoBehaviour
 <<<<<<< HEAD
 
 =======
+>>>>>>> aef45b32a9738c4c16f2a82173869c9136011909
     public void bossDamage(int dmg)
     {
         if (invCounter <= 0)
@@ -179,11 +181,5 @@ public class CharacterMov : MonoBehaviour
             invCounter = invLenght;
         }
     }
->>>>>>> f4a3a058ea3b36b89adb561d75f32e09aa823735
-
-}
-
-=======
->>>>>>> 70766c6fa2484678407232be07fdbf649fbd9f29
 
 }
